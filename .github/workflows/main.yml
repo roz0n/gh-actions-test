@@ -1,19 +1,24 @@
 name: Demo Workflow
 
-on: [push]
+on: [push] # specify events
 
 jobs:
   run-shell-command:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest # specify os
     steps:
       - name: echo a string
         run: echo "Hola mundo"
       - name: multiline script
-        run: |
+        run: | # multiple commands
           node -v
           npm -v
       - name: Python commands
         run: |
           import platform
           print(platform.processor())
-        shell: python
+        shell: python # denotes custom shell
+  run-macos-command:
+    runs-on: "macos-latest"
+    steps:
+      - name: print version
+        run: sw_vers
