@@ -1,0 +1,15 @@
+name: Secondary Demo Workflow
+
+on: [push]
+
+jobs:
+  run-github-actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Simple JS Actions
+        id: greet # assign id to this step to reference it later
+        uses: actions/hello-world-javascript-action@v1 # user, repo, version
+        with:
+          who-to-greet: Arnaldo # env variable
+      - name: Log Greeting Time # new step
+        run: echo "${{ steps.greet.outputs.time }}" # accessing step data
