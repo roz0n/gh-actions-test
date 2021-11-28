@@ -1,4 +1,4 @@
-name: Secondary Demo Workflow
+name: Secondary Workflow
 
 on: [push]
 
@@ -6,6 +6,16 @@ jobs:
   run-github-actions:
     runs-on: ubuntu-latest
     steps:
+      - name: List Files Before Cloning
+        run: |
+          pwd
+          ls
+      - name: Checkout
+        uses: actions/checkout@latest
+      - name: List Files After Cloning
+        run: |
+          pwd
+          ls
       - name: Simple JS Actions
         id: greet # assign id to this step to reference it later
         uses: actions/hello-world-javascript-action@v1 # user, repo, version
