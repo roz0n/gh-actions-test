@@ -19,6 +19,7 @@ jobs:
         shell: python # denotes custom shell
   run-macos-command:
     runs-on: "macos-latest"
+    needs: [run-shell-command]
     steps:
       - name: print version
         run: sw_vers
